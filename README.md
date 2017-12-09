@@ -4,7 +4,7 @@ After a lot of hard work in the data munging mines, you've landed a job as Lead 
 
 Like many others in its genre, the game is free-to-play, but players are encouraged to purchase optional items that enhance their playing experience. As a first task, the company would like you to generate a report that breaks down the game's purchasing data into meaningful insights.
 
-**Input**: purchase_data2.json and purchase_data.json
+**Input**: purchase_data2.json and purchase_data.json. Combine the two dataframes and create single df.
 
 The whole task is divided to analyze following 7 subtasks:
   <ol>
