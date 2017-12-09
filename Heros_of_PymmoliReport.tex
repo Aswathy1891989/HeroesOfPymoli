@@ -141,9 +141,8 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Heros\_of\_Pymmoli\_report}
-\author{Aswathy Mohan}
-    
+    \title{Heros\_of\_Pymoli}
+    \author{Aswathy Mohan}
     
     
 
@@ -303,6 +302,13 @@ json, we need to import json package .
 \end{Verbatim}
 
 
+    The data is provided in two JSON files. purchase\_data.json and
+purchas\_data2.json. Read the files using read\_csv function from
+pandas. Let's define a user defined function to do it. The function
+reading\_file takes filePath, variable which is a string as argument and
+returns a DataFrame object , which contains the data from .json file.
+Combine both files using concat().
+
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}115}]:} \PY{n}{purchase\PYZus{}Data\PYZus{}Reader1}\PY{o}{=}\PY{n}{reading\PYZus{}File}\PY{p}{(}\PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{raw\PYZus{}data}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{purchase\PYZus{}data2.json}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
           \PY{n}{purchase\PYZus{}Data\PYZus{}Reader2}\PY{o}{=}\PY{n}{reading\PYZus{}File}\PY{p}{(}\PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{raw\PYZus{}data}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{purchase\PYZus{}data.json}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
@@ -320,6 +326,7 @@ json, we need to import json package .
           4   22   Male      154              Feral Katana   4.11  Philodil43
 \end{Verbatim}
             
+
     \subsection{Total Players}\label{total-players}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -346,9 +353,7 @@ json, we need to import json package .
           0                  93      27.036882              858        2514.43
 \end{Verbatim}
             
-    \#\#
-
-\subsection{Gender Demographics}
+    \subsection{Gender Demographics}\label{gender-demographics}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}121}]:} \PY{n}{total\PYZus{}Gender}\PY{o}{=}\PY{n}{gender\PYZus{}total}\PY{p}{(}\PY{p}{)}
@@ -363,49 +368,48 @@ json, we need to import json package .
           2  Other / Non-Disclosed                1.40           12
 \end{Verbatim}
             
-    \#\#
+    \subsection Purchasing Analysis (Gender)
 
-\subsection{Purchasing Analysis (Gender)} 
+  
+
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}123}]:} \PY{n}{gender\PYZus{}Analyis}\PY{o}{=}\PY{n}{gender\PYZus{}Analysis}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}137}]:} \PY{n}{gender\PYZus{}Analyis}\PY{o}{=}\PY{n}{gender\PYZus{}Analysis}\PY{p}{(}\PY{p}{)}
           \PY{n}{gender\PYZus{}Analyis}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}123}]:}                   Gender  Purchase Count  Average Purchase Price  \textbackslash{}
+{\color{outcolor}Out[{\color{outcolor}137}]:}                   Gender  Purchase Count  Average Purchase Price  \textbackslash{}
           0                   Male             697                2.944448   
           1                 Female             149                2.847584   
           2  Other / Non-Disclosed              12                3.155000   
           
              Total Purchase Value  Normalized Totals  
-          0               2052.28           2.944448  
-          1                424.29           2.847584  
-          2                 37.86           3.155000  
+          0               2052.28           2.391935  
+          1                424.29           0.494510  
+          2                 37.86           0.044126  
 \end{Verbatim}
             
+    \subsection{Age Demographics}\label{age-demographics}
+
    
 
-\subsection{Age Demographics} 
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}126}]:} \PY{n}{age\PYZus{}df}\PY{o}{=}\PY{n}{age\PYZus{}group}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age Group}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}139}]:} \PY{n}{age\PYZus{}df}\PY{o}{=}\PY{n}{age\PYZus{}group}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Age Group}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
           \PY{n}{age\PYZus{}df}\PY{o}{=}\PY{n}{age\PYZus{}df}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{n}{how}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{any}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
           \PY{n}{age\PYZus{}df}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}Aswathy Vineeth\textbackslash{}Anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}ipykernel\_launcher.py:9: RuntimeWarning: invalid value encountered in long\_scalars
-  if \_\_name\_\_ == '\_\_main\_\_':
-C:\textbackslash{}Users\textbackslash{}Aswathy Vineeth\textbackslash{}Anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}ipykernel\_launcher.py:11: RuntimeWarning: invalid value encountered in long\_scalars
-  \# This is added back by InteractiveShellApp.init\_path()
+C:\textbackslash{}Users\textbackslash{}Aswathy Vineeth\textbackslash{}Anaconda3\textbackslash{}lib\textbackslash{}site-packages\textbackslash{}ipykernel\_launcher.py:10: RuntimeWarning: invalid value encountered in long\_scalars
+  \# Remove the CWD from sys.path while we load stuff.
 
     \end{Verbatim}
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}126}]:}   Age Group Range  Purchase Count  Average PRICE  Total Price  \textbackslash{}
+{\color{outcolor}Out[{\color{outcolor}139}]:}   Age Group Range  Purchase Count  Average PRICE  Total Price  \textbackslash{}
           0           20-25             372       2.923817      1087.66   
           1           15-19             144       2.894653       416.83   
           2             <10              37       2.984865       110.44   
@@ -416,14 +420,14 @@ C:\textbackslash{}Users\textbackslash{}Aswathy Vineeth\textbackslash{}Anaconda3\
           7           10-14              34       2.727941        92.75   
           
              Normalized Total  
-          0          2.923817  
-          1          2.894653  
-          2          2.984865  
-          3          3.275294  
-          4          2.958507  
-          5          2.932708  
-          6          2.973803  
-          7          2.727941  
+          0          1.267669  
+          1          0.485816  
+          2          0.128718  
+          3          0.064895  
+          4          0.462051  
+          5          0.164068  
+          6          0.246084  
+          7          0.108100  
 \end{Verbatim}
             
     \subsection{Top Spenders}\label{top-spenders}
@@ -498,15 +502,16 @@ Items}\label{popular-and-profitable-items}
           44                  29.34  
 \end{Verbatim}
             
-\section{Trend Analysis}
-\begin{itemize}
-	\item Total players is 858 with 3 type of gender
-	\item There is 93 Unique items and total revenue is \$ 2514
-	\item From Purchase Analysis by Gender, the count of Male Players are very high . But from the average Purchase Price it can be seen that, other players have purchased more than male players
-	\item Age Group 20-25 have made the highest purchases , but average purchase price is highest for 40-44 group
-	\item Undirrala66 is the top spender 
-	\item Retribution Axe is the  most purchased item and Arcane Gem is the popular item
+    \section{Trend Analysis}\begin{itemize}
+    \item Total players is 858 with 3 type of gender
+    \item There is 93 Unique items and total revenue is \$ 2514
+    \item From Purchase Analysis by Gender, the count of Male Players are very high . But from the average Purchase Price it can be seen that, other players have purchased more than male players
+    \item Age Group 20-25 have made the highest purchases , but average purchase price is highest for 40-44 group
+    \item Undirrala66 is the top spender 
+    \item Retribution Axe is the  most purchased item and Arcane Gem is the popular item
 \end{itemize}
+
+
     % Add a bibliography block to the postdoc
     
     
